@@ -1,2 +1,0 @@
-# Convert text files to LF during commit and CRLF during checkout
-* text=auto
