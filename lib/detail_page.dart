@@ -43,6 +43,7 @@ class DetailPage extends StatelessWidget {
             styleSheet:
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
               a: TextStyle(color: Colors.white),
+              listBullet: TextStyle(color: Colors.white),
               p: TextStyle(color: Colors.white),
               h1: TextStyle(color: Colors.white),
               h2: TextStyle(color: Colors.white),
