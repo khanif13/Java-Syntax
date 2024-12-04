@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:java_syntax/BookmarkPage.dart';
-import 'package:java_syntax/CoursesPage.dart';
-import 'package:java_syntax/HomePage.dart';
+import 'package:java_syntax/bookmark_page.dart';
+import 'package:java_syntax/courses_page.dart';
+import 'package:java_syntax/home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,16 +14,16 @@ class _HomeScreenState extends State<HomeScreen> {
   int indexTerpilih = 0;
 
   List halaman = [
-    HomePage(),
-    CoursesPage(),
-    BookmarkPage(),
+    const HomePage(),
+    const CoursesPage(),
+    const BookmarkPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: halaman[indexTerpilih],
-      backgroundColor: Color(0xFF151522),
+      backgroundColor: const Color(0xFF151522),
       bottomNavigationBar: NavigationBar(
         selectedIndex: indexTerpilih,
         onDestinationSelected: (index) {
@@ -31,10 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
             indexTerpilih = index;
           });
         },
-        backgroundColor: Color(0xFF151522),
+        backgroundColor: const Color(0xFF151522),
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         indicatorColor: Colors.transparent,
-        destinations: [
+        destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home),
             label: "Home",

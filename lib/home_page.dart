@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:java_syntax/ProgressCard.dart';
-import 'package:java_syntax/Tombol.dart';
 import 'package:java_syntax/detail_page.dart';
 import 'package:java_syntax/main.dart';
+import 'package:java_syntax/progress_card.dart';
+import 'package:java_syntax/tombol.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         .toList();
     List namaCard = ["Java Basic", "Java Advanced", "Data Types"];
     return Scaffold(
-      backgroundColor: Color(0xFF151522),
+      backgroundColor: const Color(0xFF151522),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -29,8 +29,9 @@ class HomePage extends StatelessWidget {
           children: [
             SafeArea(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                decoration: BoxDecoration(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                decoration: const BoxDecoration(
                   color: Color(0xFF282836),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(10),
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 28,
                           backgroundColor: Colors.white,
                           child: Icon(
@@ -51,13 +52,13 @@ class HomePage extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 12,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Hi, Anonymous!",
                               style: TextStyle(
                                 fontSize: 18,
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 4,
                             ),
                             Text(
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
                     ),
                     Stack(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.notifications_outlined,
                           color: Colors.white,
                           size: 28,
@@ -92,7 +93,7 @@ class HomePage extends StatelessWidget {
                           child: Container(
                             width: 8,
                             height: 8,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.orange, shape: BoxShape.circle),
                           ),
                         )
@@ -103,16 +104,16 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              padding: EdgeInsets.all(16),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFE8EBFA),
+                color: const Color(0xFFE8EBFA),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -133,10 +134,10 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -149,12 +150,12 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: LinearProgressIndicator(
+                    child: const LinearProgressIndicator(
                       value: 46 / 60,
                       backgroundColor: Color(0xFFFFFFFF),
                       valueColor: AlwaysStoppedAnimation<Color>(
@@ -167,12 +168,12 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
 
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 "Categories",
                 style: TextStyle(
@@ -181,14 +182,14 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               height: 80,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   itemBuilder: (context, index) {
                     return Tombol(
                       text: namaTombol[index],
@@ -201,19 +202,19 @@ class HomePage extends StatelessWidget {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return SizedBox(
+                    return const SizedBox(
                       width: 20,
                     );
                   },
                   itemCount: namaTombol.length),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
             // Learning Plan
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 "Learning Plan",
                 style: TextStyle(
@@ -222,18 +223,18 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
             // Learning Plan Box
             Container(
               width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              padding: EdgeInsets.all(16),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFEAEAFF),
+                color: const Color(0xFFEAEAFF),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,7 +242,7 @@ class HomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           SizedBox(
                             width: 20,
@@ -278,13 +279,13 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           SizedBox(
                             width: 20,
@@ -325,13 +326,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
             // Learning Progress
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 "Learning Progress",
                 style: TextStyle(
@@ -340,7 +341,7 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
@@ -349,9 +350,9 @@ class HomePage extends StatelessWidget {
               child: ListView.separated(
                 itemCount: namaCard.length,
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
+                  return const SizedBox(
                     width: 10,
                   );
                 },
