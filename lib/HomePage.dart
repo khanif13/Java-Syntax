@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:java_syntax/ProgressCard.dart';
 import 'package:java_syntax/Tombol.dart';
+import 'package:java_syntax/detail_page.dart';
+import 'package:java_syntax/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List namaTombol = ["Java Basic", "Java Advanced", "Data Types"];
+    List namaTombol = materis
+        .map((e) => e
+            .split("/")
+            .last
+            .split("_")
+            .map((e) => "${e[0].toUpperCase()}${e.substring(1).toLowerCase()}")
+            .join(" ")
+            .split(".md")
+            .first)
+        .toList();
     List namaCard = ["Java Basic", "Java Advanced", "Data Types"];
     return Scaffold(
       backgroundColor: Color(0xFF151522),
@@ -179,7 +190,15 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   itemBuilder: (context, index) {
-                    return Tombol(text: namaTombol[index]);
+                    return Tombol(
+                      text: namaTombol[index],
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailPage(
+                                title: namaTombol[index],
+                                asset: materis[index])));
+                      },
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
