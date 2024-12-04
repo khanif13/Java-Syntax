@@ -92,7 +92,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 91,
               margin: EdgeInsets.symmetric(horizontal: 20),
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -175,7 +174,7 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 76,
+              height: 80,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 20),
