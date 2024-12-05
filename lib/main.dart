@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:java_syntax/home.dart';
 
-void main() {
+late List<String> materis;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final manifestContent = await AssetManifest.loadFromAssetBundle(rootBundle);
+
+  materis = manifestContent
+      .listAssets()
+      .where((e) => e.startsWith("assets/materi/"))
+      .toList();
+
   runApp(const MyApp());
 }
 

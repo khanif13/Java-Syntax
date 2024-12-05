@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:java_syntax/course.dart';
-import 'package:java_syntax/CourseCard.dart';
+import 'package:java_syntax/course_card.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -8,15 +8,15 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF151522),
+      backgroundColor: const Color(0xFF151522),
       appBar: AppBar(
-        backgroundColor: Color(0xFF151522),
+        backgroundColor: const Color(0xFF151522),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {},
         ),
-        title: Text(
+        title: const Text(
           "My Courses",
           style: TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
@@ -24,17 +24,17 @@ class CoursesPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Color(0xFF272B40),
+                color: const Color(0xFF272B40),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -63,10 +63,10 @@ class CoursesPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Expanded(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
