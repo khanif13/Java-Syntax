@@ -58,7 +58,7 @@ class DetailPage extends StatelessWidget {
               img: TextStyle(color: Colors.white),
               checkbox: TextStyle(color: Colors.white),
             ),
-            builders: {"code": CodeElementBuilder()},
+            builders: {"pre": CodeElementBuilder()},
           );
         },
       ),

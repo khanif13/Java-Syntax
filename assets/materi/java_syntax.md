@@ -245,9 +245,9 @@ Java bersifat **Case Sensitive**, artinya huruf besar atau kapital dan huruf kec
 
 Contoh:
 ```java
-String nama = "Petani Kode";
-String Nama = "petanikode";
-String NAMA = "Petani Kode.com";
+String nama = "Java Syntax";
+String Nama = "javasyntax";
+String NAMA = "JAVA SYNTAX";
 
 System.out.println(nama);
 System.out.println(Nama);
@@ -306,7 +306,7 @@ Lalu, penulisan _ALL UPPER_ atau semaunya kapital digunakan pada pembuatan nama 
 
 Contoh:
 ```java
-public final String DB_NAME = "petanikode";
+public final String DB_NAME = "contoh";
 ```
 Untuk penulisan dua suku kata atau lebih, ALL UPPER dipisah dengan garis bawah atau underscore (`_`).
 Apakah boleh saya menulis sembarangan?
