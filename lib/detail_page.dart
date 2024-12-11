@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:java_syntax/main.dart';
 import 'package:java_syntax/utils/code_element_builder.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, required this.title, required this.asset});
+  const DetailPage(
+      {super.key,
+      required this.title,
+      required this.asset,
+      required this.index,
+      this.offset});
   final String title;
   final String asset;
+  final int index;
+  final double? offset;
 
   Future<String> loadAsset(BuildContext context, String myAsset) async {
     return await DefaultAssetBundle.of(context).loadString(myAsset);
@@ -13,6 +21,13 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController(initialScrollOffset: offset ?? 0);
+    scrollController.addListener(() async {
+      double current = scrollController.offset;
+      double max = scrollController.position.maxScrollExtent;
+      await sharedPrefs.setDouble(keys[index], current);
+      await sharedPrefs.setDouble("${keys[index]}_max", max);
+    });
     return Scaffold(
       backgroundColor: Color(0xFF151522),
       appBar: AppBar(
@@ -38,6 +53,7 @@ class DetailPage extends StatelessWidget {
             );
           }
           return Markdown(
+            controller: scrollController,
             data: snapshot.data!,
             selectable: true,
             styleSheet:
@@ -45,6 +61,7 @@ class DetailPage extends StatelessWidget {
               a: TextStyle(color: Colors.white),
               listBullet: TextStyle(color: Colors.white),
               p: TextStyle(color: Colors.white),
+              tableBody: TextStyle(color: Colors.white),
               h1: TextStyle(color: Colors.white),
               h2: TextStyle(color: Colors.white),
               h3: TextStyle(color: Colors.white),
@@ -58,7 +75,7 @@ class DetailPage extends StatelessWidget {
               img: TextStyle(color: Colors.white),
               checkbox: TextStyle(color: Colors.white),
             ),
-            builders: {"pre": CodeElementBuilder()},
+            builders: {"code": CodeElementBuilder()},
           );
         },
       ),
