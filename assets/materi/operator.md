@@ -2,7 +2,8 @@
 
 Operator dalam pemrograman digunakan untuk melakukan operasi tertentu.
 
-Misalkan kita ingin menjumlahkan nilai dari variabel `x` dan `y`, maka kita bisa menggunakan operator penjumlahan (`+`).
+Misalkan kita ingin menjumlahkan nilai dari variabel `x` dan `y`,
+maka kita bisa menggunakan operator penjumlahan (`+`).
 
 ```java
 x + y
@@ -102,7 +103,7 @@ public class OperatorAritmatika {
 ```
 
 Silakan jalankan programnya:
-![alt text](/assets/img/operator/outputOperator.png)
+![](resource:assets/img/operator/outputOperator.png)
 
 ## 2. Operator Penugasan
 
@@ -175,7 +176,7 @@ public class OperatorPenugasan {
 ```
 
 Hasil outputnya:
-![alt text](/assets/img/operator/image.png)
+![](resource:assets/img/operator/image.png)
 
 ## 3. Operator Perbandingan
 
