@@ -4,22 +4,40 @@ import 'package:java_syntax/main.dart';
 import 'package:java_syntax/progress_card.dart';
 import 'package:java_syntax/tombol.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List namaTombol = materis
+      .map((e) => e
+          .split("/")
+          .last
+          .split("_")
+          .map((e) => "${e[0].toUpperCase()}${e.substring(1).toLowerCase()}")
+          .join(" ")
+          .split(".md")
+          .first)
+      .toList();
+
+  @override
   Widget build(BuildContext context) {
-    List namaTombol = materis
-        .map((e) => e
-            .split("/")
-            .last
-            .split("_")
-            .map((e) => "${e[0].toUpperCase()}${e.substring(1).toLowerCase()}")
-            .join(" ")
-            .split(".md")
-            .first)
-        .toList();
-    List namaCard = ["Java Basic", "Java Advanced", "Data Types"];
+    List namaCard = namaTombol;
+    DateTime appStart = DateTime.parse(sharedPrefs.getString("app_start")!);
+    DateTime now = DateTime.now();
+    int difference = now.difference(appStart).inMinutes;
+    int time = difference > 60 ? 60 : difference;
+    Future.delayed(Duration.zero, () async {
+      await sharedPrefs.setInt("time", time);
+    });
+
+    List<String> opened = sharedPrefs.getStringList("opened") ?? [];
+    List cloneKeys = keys;
+    int openedCount = opened.toSet().intersection(cloneKeys.toSet()).length;
+
     return Scaffold(
       backgroundColor: const Color(0xFF151522),
       body: SingleChildScrollView(
@@ -137,12 +155,12 @@ class HomePage extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "46min / 60min",
-                        style: TextStyle(
+                        "${time}min / 60min",
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: Colors.black,
@@ -155,10 +173,10 @@ class HomePage extends StatelessWidget {
                   ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: const LinearProgressIndicator(
-                      value: 46 / 60,
-                      backgroundColor: Color(0xFFFFFFFF),
-                      valueColor: AlwaysStoppedAnimation<Color>(
+                    child: LinearProgressIndicator(
+                      value: time / 60,
+                      backgroundColor: const Color(0xFFFFFFFF),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
                         Color(0xFF4AC983),
                       ),
                       minHeight: 6,
@@ -193,11 +211,22 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Tombol(
                       text: namaTombol[index],
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
+                      onPressed: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                            maintainState: false,
                             builder: (context) => DetailPage(
-                                title: namaTombol[index],
-                                asset: materis[index])));
+                              index: index,
+                              title: namaTombol[index],
+                              asset: materis[index],
+                            ),
+                          ),
+                        );
+                        if (!opened.contains(keys[index])) {
+                          await sharedPrefs.setStringList(
+                              "opened", [...opened, keys[index]]);
+                        }
+                        setState(() {});
                       },
                     );
                   },
@@ -242,13 +271,13 @@ class HomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Row(
+                      Row(
                         children: [
                           SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
-                              value: 40 / 48,
+                              value: openedCount / keys.length,
                               strokeWidth: 3,
                               backgroundColor: Color(0xFFF4F3FD),
                               valueColor: AlwaysStoppedAnimation<Color>(
@@ -270,7 +299,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        "40/48",
+                        "$openedCount/${keys.length}",
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -279,53 +308,52 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: CircularProgressIndicator(
-                              value: 6 / 24,
-                              strokeWidth: 3,
-                              backgroundColor: Color(0xFFF4F3FD),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Color(0xFF4AC983), // Warna progress
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            "OOP",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        "6/24",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[700],
-                        ),
-                      )
-                    ],
-                  )
+                  // const SizedBox(
+                  //   height: 12,
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     const Row(
+                  //       children: [
+                  //         SizedBox(
+                  //           width: 20,
+                  //           height: 20,
+                  //           child: CircularProgressIndicator(
+                  //             value: 6 / 24,
+                  //             strokeWidth: 3,
+                  //             backgroundColor: Color(0xFFF4F3FD),
+                  //             valueColor: AlwaysStoppedAnimation<Color>(
+                  //               Color(0xFF4AC983), // Warna progress
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         SizedBox(
+                  //           width: 8,
+                  //         ),
+                  //         Text(
+                  //           "OOP",
+                  //           style: TextStyle(
+                  //             fontSize: 14,
+                  //             fontWeight: FontWeight.bold,
+                  //             color: Colors.black,
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //     Text(
+                  //       "6/24",
+                  //       style: TextStyle(
+                  //         fontSize: 14,
+                  //         fontWeight: FontWeight.bold,
+                  //         color: Colors.grey[700],
+                  //       ),
+                  //     )
+                  //   ],
+                  // )
                 ],
               ),
             ),
-
             const SizedBox(
               height: 10,
             ),
@@ -357,8 +385,31 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 itemBuilder: (BuildContext context, int index) {
+                  double current = sharedPrefs.getDouble(keys[index]) ?? 0;
+                  double max = sharedPrefs.getDouble("${keys[index]}_max") ?? 0;
+                  double progress = current / max;
                   return Progresscard(
-                      text: namaCard[index], progress: index == 0 ? 0.75 : 0.5);
+                    text: namaCard[index],
+                    progress: progress.isNaN ? 0 : progress,
+                    onResumePressed: () async {
+                      await Navigator.of(context).push(
+                        MaterialPageRoute(
+                          maintainState: false,
+                          builder: (context) => DetailPage(
+                            index: index,
+                            title: namaTombol[index],
+                            asset: materis[index],
+                            offset: current,
+                          ),
+                        ),
+                      );
+                      if (!opened.contains(keys[index])) {
+                        await sharedPrefs
+                            .setStringList("opened", [...opened, keys[index]]);
+                      }
+                      setState(() {});
+                    },
+                  );
                 },
               ),
             )

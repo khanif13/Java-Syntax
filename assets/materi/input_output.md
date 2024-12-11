@@ -1,5 +1,7 @@
 # Java Syntax: Input Output dalam Java
+
 Seperti yang kita ketahui, program komputer terdiri dari tiga komponen utama, yaitu: input, proses, dan output.
+
 - Input: nilai yang kita masukan ke program
 - Proses: langkah demi langkah yang dilakukan untuk mengelola input menjadi sesuatu yang berguna
 - Output: hasil pengolahan
@@ -17,14 +19,17 @@ Tiga class tersebut untuk mengambil input pada program berbasis teks (console). 
 Sementara untuk outputnya, Java menyediakan fungsi `print()`, `println()`, dan `format()`.
 
 ## Mengambil Input dengan Class Scanner
+
 Scanner merupakan class yang menyediakan fungsi-fungsi untuk mengambil input dari keyboard.
 
 Agar kita bisa menggunakan Scanner, kita perlu mengimpornya ke dalam kode:
+
 ```java
 import java.util.Scanner;
 ```
 
 Setelah itu, silakan ikuti kode berikut ini:
+
 ```java
 package pertemuan2;
 
@@ -80,6 +85,7 @@ Setelah selesai membuat program, silakan dijalankan. Klik kanan kemudian pilih R
 ![contoh output](/assets/img/run.png)
 
 ## Mengambil Input dengan Class BufferReader
+
 Class `BufferReader` sebenarnya tidak hanya untuk mengambil input dari keyboard saja.
 
 Class ini juga dapat digunakan untuk membaca input dari file dan jaringan.
@@ -93,6 +99,7 @@ import java.io.BufferedReader;
 ```
 
 ### Mari dicoba...
+
 Buat class baru bernama `ContohBufferReader`, kemudian isi dengan kode berikut ini.
 
 ```java
@@ -143,6 +150,7 @@ Lalu untuk tipe data integer, `BufferReader` menggunakan fungsi `read()` saja. H
 **Tips**: Tekan `Ctrl`+`Spasi` saat menulis kode untuk menampilkan hint autocomplete.
 
 ## Mengambil Input dengan Class Console
+
 Class `Console` hampir sama dengan `BufferReader`. Dia juga menggunakan fungsi `readLine()` untuk mengambil input.
 
 Akan tetapi…
@@ -201,6 +209,7 @@ Setelah itu, ketik perintah `java InputConsole` untuk menjalankannya:
 ![contoh run](/assets/img/input.png)
 
 ## Menampilkan Output
+
 Kita sudah mengenal beberapa cara mengambil input dari keyboard untuk program berbasis teks.
 
 Sekarang bagaimana dengan outputnya?
@@ -216,6 +225,7 @@ Apa saja perbedaan dari fungsi-fungsi tersebut?
 Mari kita bahas…
 
 ### Fungsi `print()` vs `println()`
+
 Fungsi `print()` dan `println()` sama-sama digunakan untuk menampilkan teks.
 
 Lalu apa bedanya?
@@ -223,6 +233,7 @@ Lalu apa bedanya?
 Fungsi `print()` akan menampilkan teks apa adanya. Sedangkan `println()` akan menampilkan teks dengan ditambah baris baru.
 
 Mari kita coba dalam kode:
+
 ```java
 package eksperimen;
 
@@ -238,11 +249,13 @@ public class PrintVsPrinln {
 
 }
 ```
+
 Sekarang lihat hasil outputnya:
 
 ![output](/assets/img/print.png)
 
 ## Menggabungkan String
+
 Ketika menggunakan fungsi `print()` maupun `println()`, kadang kita perlu mengambil teks dari variabel dan menggabungkannya dengan teks yang lain.
 
 Misalnya seperti ini:
@@ -266,19 +279,23 @@ Kode tersebut akan menghasilkan: `PetaniKode`
 Sebenarnya kita tidak perlu menggunakan dua fungsi `print()`, karena kita bisa menggabungkannya dengan operator `+`.
 
 Contoh:
+
 ```java
 System.out.print(namaDepan + namaBelakang);
 ```
 
 Agar ada spasi, tinggal ditambahkan saja spasi:
+
 ```java
 System.out.print(namaDepan + " " + namaBelakang);
 ```
 
 ## Format String
+
 Sedangkan untuk menggabungkan String yang lebih kompleks, kita bisa menggunakan fungsi `format()`.
 
 Contoh:
+
 ```java
 package eksperimen;
 
@@ -303,13 +320,15 @@ Selain `%s`, ada juga simbol lain:
 - `%d` untuk desimal atau angka;
 - `%f` untuk bilangan pecahan;
 - `%n`untuk baris baru, bisa juga pakai `\n`;
-dan masih banyak lagi.
+  dan masih banyak lagi.
 
 ![alt text](/assets/img/outputformat.png)
 
 Kode di atas akan menghasilkan: Nama saya Java Syntax
 
 ## Apa selanjutnya?
+
 Kita baru saja mengetahui tiga cara mengambil input dan menampilkan output untuk program berbasis teks (console).
 
 Selanjutnya, silakan pelajari konsep variabel dan tipe data pada java.
+

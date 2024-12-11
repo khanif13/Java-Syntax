@@ -1,4 +1,5 @@
 # Variabel dan Tipe Data
+
 Variabel adalah tempat menyimpan nilai sementara.
 
 Itu saja.
@@ -20,6 +21,7 @@ Lalu, apa itu tipe data?
 Tipe data adalah jenis data yang tersimpan dalam variabel.
 
 ## Macam-macam Tipe Data
+
 Berikut ini macam-macam tipe data pada Java:
 
 - `char`: Tipe data karakter, contoh `Z`
@@ -30,25 +32,31 @@ Berikut ini macam-macam tipe data pada Java:
 - `boolean`: tipe data yang hanya bernilai `true` dan `false`
 
 ## Membuat Variabel
+
 Hal yang perlu diketahui dalam pembuatan variabel di java adalah cara penulisannya.
 
 Formatnya seperti ini:
+
 ```java
 <tipe data> namaVariabel;
 ```
+
 **Contoh**:
 
 Membuat variabel kosong bertipe integer:
+
 ```java
 int namaVariabel;
 ```
 
 Membuat variabel bertipe integer dan langsung diisi nilai:
+
 ```java
 int namaVariabel = 19;
 ```
 
 Membuat sekumpulan variabel yang tipe datanya sama:
+
 ```java
 int a, b, c;
 ```
@@ -61,6 +69,7 @@ Lalu, di mana itu ditulis?
 Bingung…?
 
 ## Mari Kita Coba Latihan dengan Membuat Program DataDiri
+
 Buatlah program baru bernama DataDiri. Silakan tambahkan kelas (java class) baru di paket (package) `pertemuan1`.
 
 ![buat package](/assets/img/package.png)
@@ -92,6 +101,7 @@ Dan, … silakan coba jalankan kembali programnya.
 Yap! hasilnya sudah benar.
 
 ## Aturan Penulisan Variabel
+
 Ternyata tidak boleh sembarangan dalam membuat variabel.
 
 Ada aturan yang harus diikuti, di antaranya:
@@ -103,6 +113,7 @@ Ada aturan yang harus diikuti, di antaranya:
 Apabila nama variabel lebih dari 1 suku kata, maka kata ke-2 dituliskan dengan diawali dengan huruf besar dan seterusnya, contoh `namaVariabel`.
 
 ## Latihan Ke-2: Program LuasLingkaran
+
 Mari kita mantapkan pemahaman dengan membuat program LuasLingkaran.
 
 Program ini fungsinya untuk menghitung luas lingkaran.
@@ -112,6 +123,7 @@ Luas lingkaran dapat kita hitung dengan rumus `PI x r2`.
 Sebelum memulai memprogram, sebaiknya kita pahami dulu algoritma dan flowchart-nya:
 
 ## Algoritma
+
 ```java
 Deklarasi:
     Double luas, PI
@@ -139,6 +151,7 @@ Sekarang kita tinggal coding saja.
 Silakan dieksekusi dan perhatikan hasilnya.
 
 ## Konversi Tipe Data
+
 Konversi artinya mengubah ke jenis yang lain.
 
 Kenapa kita perlu konversi tipe data?
@@ -152,23 +165,30 @@ Begitu juga dengan variabel.
 Tipe data string tidak akan bisa disimpan dalam variabel dengan tipe integer.
 
 ## Cara Konversi Tipe Data
+
 Contoh: Konversi ke tipe integer
 
 Cara 1:
+
 ```java
 Integer.perseInt(variabel);
 Integer.perseInt(1.2);
 ```
 
 Cara 2:
+
 ```java
 Integer.valueOf(2.1);
 ```
+
 Cara 3:
+
 ```java
 objek.toInt();
 ```
+
 Cara 4:
+
 ```java
 (int) variabel;
 (int) 2.1;
@@ -177,6 +197,7 @@ Cara 4:
 Ternyata, ada banyak sekali cara.
 
 ## Mari Kita Coba dalam Program…
+
 Buatlah kelas (java class) baru di paket pertemuan2.
 
 Berikan nama: LuasSegitiga.
@@ -215,7 +236,8 @@ public class LuasSegitia {
 }
 ```
 
-Variabel `luas` bertipe data Double, berarti nilai yang bisa disimpan adalah Double.
+Variabel `luas` bertipe data Double,
+berarti nilai yang bisa disimpan adalah Double.
 
 Sedangkan variabel `alas` dan `tinggi` bertipe Integer.
 
@@ -224,4 +246,3 @@ Agar hasil operasi data integer dapat disimpan dalam variabel bertipe double, ma
 Kalau dijalankan, akan menghasilkan:
 
 ![alt text](/assets/img/outputLuas.png)
-

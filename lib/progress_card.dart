@@ -3,9 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Progresscard extends StatelessWidget {
-  const Progresscard({super.key, required this.text, required this.progress});
+  const Progresscard(
+      {super.key,
+      required this.text,
+      required this.progress,
+      this.onResumePressed});
   final String text;
   final double progress;
+  final Function()? onResumePressed;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class Progresscard extends StatelessWidget {
                           SizedBox(
                             height: 20,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: onResumePressed,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF151522),
                                 shape: RoundedRectangleBorder(
