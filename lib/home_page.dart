@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color(0xFF151522),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -76,9 +77,9 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Hi, User!",
-                              style: TextStyle(
+                            Text(
+                              "Hi, ${sharedPrefs.getString("username")}!",
+                              style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -98,6 +99,25 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
+                    // Stack(
+                    //   children: [
+                    //     const Icon(
+                    //       Icons.notifications_outlined,
+                    //       color: Colors.white,
+                    //       size: 28,
+                    //     ),
+                    //     Positioned(
+                    //       top: 0,
+                    //       right: 0,
+                    //       child: Container(
+                    //         width: 8,
+                    //         height: 8,
+                    //         decoration: const BoxDecoration(
+                    //             color: Colors.orange, shape: BoxShape.circle),
+                    //       ),
+                    //     )
+                    //   ],
+                    // )
                   ],
                 ),
               ),
@@ -260,16 +280,16 @@ class _HomePageState extends State<HomePage> {
                             child: CircularProgressIndicator(
                               value: openedCount / keys.length,
                               strokeWidth: 3,
-                              backgroundColor: Color(0xFFF4F3FD),
-                              valueColor: AlwaysStoppedAnimation<Color>(
+                              backgroundColor: const Color(0xFFF4F3FD),
+                              valueColor: const AlwaysStoppedAnimation<Color>(
                                 Color(0xFF4AC983), // Warna progress
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
-                          Text(
+                          const Text(
                             "Java Basics",
                             style: TextStyle(
                               fontSize: 14,
@@ -359,6 +379,7 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 itemCount: namaCard.length,
                 scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 separatorBuilder: (BuildContext context, int index) {
                   return const SizedBox(

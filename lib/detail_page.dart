@@ -14,7 +14,6 @@ class DetailPage extends StatelessWidget {
   final String asset;
   final int index;
   final double? offset;
-
   Future<String> loadAsset(BuildContext context, String myAsset) async {
     return await DefaultAssetBundle.of(context).loadString(myAsset);
   }
@@ -28,6 +27,10 @@ class DetailPage extends StatelessWidget {
       await sharedPrefs.setDouble(keys[index], current);
       await sharedPrefs.setDouble("${keys[index]}_max", max);
     });
+    final bookmark = sharedPrefs.getStringList("bookmark") ?? [];
+    final bookmarkKey = title.toLowerCase().split(" ").join("_");
+    bool isBookmarked = bookmark.contains(bookmarkKey);
+
     return Scaffold(
       backgroundColor: Color(0xFF151522),
       appBar: AppBar(
@@ -40,6 +43,29 @@ class DetailPage extends StatelessWidget {
           fontSize: 18,
           fontWeight: FontWeight.w700,
         ),
+        actions: [
+          StatefulBuilder(builder: (context, setState) {
+            return IconButton(
+              onPressed: () async {
+                if (isBookmarked) {
+                  setState(() {
+                    isBookmarked = false;
+                  });
+                  bookmark.remove(bookmarkKey);
+                  await sharedPrefs.setStringList("bookmark", bookmark);
+                } else {
+                  setState(() {
+                    isBookmarked = true;
+                  });
+                  await sharedPrefs
+                      .setStringList("bookmark", [...bookmark, bookmarkKey]);
+                }
+              },
+              icon:
+                  Icon(isBookmarked ? Icons.bookmark : Icons.bookmark_outline),
+            );
+          })
+        ],
         centerTitle: true,
       ),
       body: FutureBuilder(

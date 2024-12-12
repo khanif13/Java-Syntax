@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:java_syntax/course.dart';
 
 class CourseCard extends StatelessWidget {
-  final Course course;
-
-  const CourseCard({required this.course});
+  const CourseCard(
+      {super.key,
+      required this.progress,
+      required this.title,
+      this.onPlayPressed});
+  final double progress;
+  final String title;
+  final Function()? onPlayPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +23,26 @@ class CourseCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Judul kursus
-            Text(
-              course.title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold),
+            SizedBox(
+              width: double.infinity,
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             SizedBox(height: 8),
             // Status penyelesaian kursus
-            Text(
-              "Completed ${course.completed}/${course.total}",
-              style: TextStyle(color: Colors.white, fontSize: 14),
-            ),
-            SizedBox(height: 8),
+            // Text(
+            //   "Completed ${course.completed}/${course.total}",
+            //   style: TextStyle(color: Colors.white, fontSize: 14),
+            // ),
+            // SizedBox(height: 8),
             // Bar progres
             LinearProgressIndicator(
-              value: course.total > 0
-                  ? course.completed / course.total
-                  : 0.0, // Menangani pembagian dengan 0
+              value: progress,
               backgroundColor: Colors.grey,
               valueColor: AlwaysStoppedAnimation<Color>(
                   Color(0xFF4CAF50)), // Warna hijau
@@ -46,13 +51,19 @@ class CourseCard extends StatelessWidget {
             // Tombol play
             Align(
               alignment: Alignment.bottomRight,
-              child: Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(99),
+                child: Material(
                   color: Color(0xFF3B5BFF), // Warna biru tombol
-                  shape: BoxShape.circle,
+                  child: InkWell(
+                    onTap: onPlayPressed,
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child:
+                          Icon(Icons.play_arrow, color: Colors.white, size: 20),
+                    ),
+                  ),
                 ),
-                child: Icon(Icons.play_arrow, color: Colors.white, size: 20),
               ),
             ),
           ],

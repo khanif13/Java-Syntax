@@ -16,92 +16,95 @@ class Progresscard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 290,
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.blue,
-            image: const DecorationImage(
-              image: AssetImage(
-                'assets/learn_progress.png',
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            height: 290,
+            width: 200,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              image: const DecorationImage(
+                image: AssetImage(
+                  'assets/learn_progress.png',
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ContainerBlurredBackground(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ContainerBlurredBackground(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              text,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 4.0,
+                            ),
+                            SizedBox(
+                              height: 20,
+                              child: ElevatedButton(
+                                onPressed: onResumePressed,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF151522),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(),
+                                ),
+                                child: const Text(
+                                  "Resume",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Stack(
+                        alignment: Alignment.center,
                         children: [
-                          Text(
-                            text,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                          SizedBox(
+                            height: 48,
+                            width: 48,
+                            child: CircularProgressIndicator(
+                              value: progress,
+                              strokeWidth: 3,
+                              backgroundColor: Colors.grey.withOpacity(0.3),
+                              valueColor: const AlwaysStoppedAnimation<Color>(
+                                Color(0xFF4AC983), // Warna progress
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            height: 4.0,
-                          ),
-                          SizedBox(
-                            height: 20,
-                            child: ElevatedButton(
-                              onPressed: onResumePressed,
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF151522),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                padding: const EdgeInsets.symmetric(),
-                              ),
-                              child: const Text(
-                                "Resume",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                ),
-                              ),
+                          Text(
+                            '${(progress * 100).toInt()}%', // Teks progress dalam persen
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        SizedBox(
-                          height: 48,
-                          width: 48,
-                          child: CircularProgressIndicator(
-                            value: progress,
-                            strokeWidth: 3,
-                            backgroundColor: Colors.grey.withOpacity(0.3),
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                              Color(0xFF4AC983), // Warna progress
-                            ),
-                          ),
-                        ),
-                        Text(
-                          '${(progress * 100).toInt()}%', // Teks progress dalam persen
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ],
