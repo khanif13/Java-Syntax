@@ -6,7 +6,7 @@ Baris demi baris dibaca, kemudian komputer mengerjakan apa yang diperintahkan.
 
 Misalnya seperti ini:
 
-![alt text](/assets/img/percabangan/image.png)
+![alt text](resource:assets/img/percabangan/image.png)
 
 Alur programnya satu, tidak ada belokan atau percabangan.
 
@@ -20,7 +20,7 @@ Pada diagram alur (Flow Chart) seperti di atas, alurnya memang satu.
 
 Tapi setelah kita menggunakan percabangan, alurnya akan bertambah menjadi seperti ini.
 
-![alt text](/assets/img/percabangan/image-1.png)
+![alt text](resource:assets/img/percabangan/image-1.png)
 
 Lalu bagaimana cara menulis kode percabangan dalam Java?
 
@@ -51,7 +51,7 @@ Mari kita bahas satu per satu…
 
 Percabangan ini hanya memiliki satu pilihan. Artinya, pilihan di dalam IF hanya akan dikerjakan kalau kondisinya benar.
 
-![alt text](/assets/img/percabangan/image-2.png)
+![alt text](resource:assets/img/percabangan/image-2.png)
 
 Tapi kalau salah… tidak akan melakukan apa-apa. Alias lanjut eksekusi ke perintah berikutnya.
 
@@ -98,7 +98,7 @@ public class Hadiah {
 
 Jalankan programnya dan perhatikanlah hasilnya.
 
-![alt text](/assets/img/percabangan/image-3.png)
+![alt text](resource:assets/img/percabangan/image-3.png)
 
 Cobalah untuk memberikan nilai di bawah `100000` dan perhatikan apa akan yang terjadi.
 
@@ -110,7 +110,7 @@ Sedangkan percabangan IF/ELSE memiliki pilihan alternatif kalau kondisinya salah
 
 **IF/ELSE**: “Jika kondisi benar maka kerjakan ini, kalau salah maka kerjakan yang itu, setelah itu lanjut”
 
-![alt text](/assets/img/percabangan/image-4.png)
+![alt text](resource:assets/img/percabangan/image-4.png)
 
 Begitulah perbedaan IF dengan IF/ELSE.
 
@@ -153,7 +153,7 @@ public class CekKelulusan {
 ```
 
 Hasil outputnya:
-![alt text](/assets/img/percabangan/image-5.png)
+![alt text](resource:assets/img/percabangan/image-5.png)
 
 Cobalah untuk mengubah nilai yang dimasukkan dan perhatikan apa yang akan terjadi.
 
@@ -210,7 +210,7 @@ if (suatu kondisi) {
 ```
 
 Coba perhatikan contohnya:
-![alt text](/assets/img/percabangan/image-6.png)
+![alt text](resource:assets/img/percabangan/image-6.png)
 
 Jika nilainya lebih besar dari `90`, maka grade-nya “A”. Sedangkan kalau lebih besar dari `80`, maka “B+”. Lebih besar dari `70`, maka “B”, dan seterusnya.
 
@@ -259,7 +259,7 @@ public class HitungGrade {
 ```
 
 Hasil outputnya:
-![alt text](/assets/img/percabangan/image-7.png)
+![alt text](resource:assets/img/percabangan/image-7.png)
 
 ### Percabangan SWITCH/CASE
 

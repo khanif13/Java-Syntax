@@ -247,7 +247,7 @@ public class OperatorPembanding {
 ```
 
 Kode program di atas, akan menghasilkan output seperti ini:
-![alt text](/assets/img/operator/image-1.png)
+![alt text](resource:assets/img/operator/image-1.png)
 
 ## 4. Operator Logika
 
@@ -291,11 +291,11 @@ Coba cek lagi tabel kebenaran untuk logika AND.
 
 Buatlah sebuah kelas baru bernama OperatorLogika. Kemudian ikuti kode berikut ini:
 
-![alt text](/assets/img/operator/image-2.png)
+![alt text](resource:assets/img/operator/image-2.png)
 
 Silakan jalankan dan perhatikan hasilnya:
 
-![alt text](/assets/img/operator/image-3.png)
+![alt text](resource:assets/img/operator/image-3.png)
 
 # 5. Operator Ternary
 
@@ -303,7 +303,7 @@ Operator ini unik, seperti membuat pertanyaan.
 
 Simbolnya menggunakan tanda tanya (`?`) dan titik-dua (`:`) untuk memisah jawabannya.
 
-![alt text](/assets/img/operator/image-4.png)
+![alt text](resource:assets/img/operator/image-4.png)
 
 Pada contoh di atas, “Kamu suka aku” adalah pertanyaan atau kondisi yang akan diperiksa.
 

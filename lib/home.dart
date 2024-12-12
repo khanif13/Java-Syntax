@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:java_syntax/bookmark_page.dart';
 import 'package:java_syntax/courses_page.dart';
 import 'package:java_syntax/home_page.dart';
 
@@ -16,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List halaman = [
     const HomePage(),
     const CoursesPage(),
-    const BookmarkPage(),
   ];
 
   @override
@@ -45,20 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           NavigationDestination(
             icon: Icon(Icons.book),
-            label: "Bookmark",
-            selectedIcon: Icon(
-              Icons.book,
-              color: Colors.white,
-            ),
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.menu_book),
             label: "Courses",
             selectedIcon: Icon(
               Icons.menu_book,
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
     );

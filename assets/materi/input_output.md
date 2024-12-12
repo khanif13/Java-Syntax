@@ -82,7 +82,7 @@ Begitu juga dengan tipe data lain, Integer menggunakan `nextInt()`, Double mengg
 
 Setelah selesai membuat program, silakan dijalankan. Klik kanan kemudian pilih Run File atau tekan tombol `[Shift]`+`[F6]`.
 
-![contoh output](/assets/img/run.png)
+![contoh output](resource:assets/img/run.png)
 
 ## Mengambil Input dengan Class BufferReader
 
@@ -137,7 +137,7 @@ Ternyata class `BufferReader` tidak bisa bekerja sendirian. Dia juga butuh teman
 
 Sekarang mari kita coba jalankan programnya:
 
-![contoh output](/assets/img/inputan.png)
+![contoh output](resource:assets/img/inputan.png)
 
 Perbedaan `BufferReader` dengan `Scanner` terlihat dari fungsi atau method yang dipakai.
 
@@ -145,7 +145,7 @@ Perbedaan `BufferReader` dengan `Scanner` terlihat dari fungsi atau method yang 
 
 Lalu untuk tipe data integer, `BufferReader` menggunakan fungsi `read()` saja. Hal ini dapat kita lihat dalam hint autocomplete .
 
-![method read](/assets/img/readline.png)
+![method read](resource:assets/img/readline.png)
 
 **Tips**: Tekan `Ctrl`+`Spasi` saat menulis kode untuk menampilkan hint autocomplete.
 
@@ -206,7 +206,7 @@ Ketik perintah: `javac InputConsole.java` untuk melakukan kompilasi.
 
 Setelah itu, ketik perintah `java InputConsole` untuk menjalankannya:
 
-![contoh run](/assets/img/input.png)
+![contoh run](resource:assets/img/input.png)
 
 ## Menampilkan Output
 
@@ -252,7 +252,7 @@ public class PrintVsPrinln {
 
 Sekarang lihat hasil outputnya:
 
-![output](/assets/img/print.png)
+![output](resource:assets/img/print.png)
 
 ## Menggabungkan String
 
@@ -322,7 +322,7 @@ Selain `%s`, ada juga simbol lain:
 - `%n`untuk baris baru, bisa juga pakai `\n`;
   dan masih banyak lagi.
 
-![alt text](/assets/img/outputformat.png)
+![alt text](resource:assets/img/outputformat.png)
 
 Kode di atas akan menghasilkan: Nama saya Java Syntax
 
@@ -331,4 +331,3 @@ Kode di atas akan menghasilkan: Nama saya Java Syntax
 Kita baru saja mengetahui tiga cara mengambil input dan menampilkan output untuk program berbasis teks (console).
 
 Selanjutnya, silakan pelajari konsep variabel dan tipe data pada java.
-

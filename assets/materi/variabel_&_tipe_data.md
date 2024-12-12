@@ -72,15 +72,15 @@ Bingung…?
 
 Buatlah program baru bernama DataDiri. Silakan tambahkan kelas (java class) baru di paket (package) `pertemuan1`.
 
-![buat package](/assets/img/package.png)
+![buat package](resource:assets/img/package.png)
 
 Pada jendela yang muncul, isi nama kelasnya dengan DataDiri. Setelah itu, silakan ikuti kode berikut.
 
-![class](/assets/img/classs.png)
+![class](resource:assets/img/classs.png)
 
 Setelah itu, coba jalankan dengan menekan tombol `[Shift]`+`[F6]`. Analisa dan pahami maksud kode-kode di atas.
 
-![run](/assets/img/runn.png)
+![run](resource:assets/img/runn.png)
 
 Hasil outputnya sepertinya salah.
 
@@ -92,11 +92,11 @@ Jadi yang akan tampil adalah isi dari variable `alamat`, bukan isi dari variabel
 
 Perbaikilah kodenya menjadi seperti ini:
 
-![contoh kode](/assets/img/readline.pngkode.png)
+![contoh kode](resource:assets/img/readline.pngkode.png)
 
 Dan, … silakan coba jalankan kembali programnya.
 
-![run](/assets/img/contohoutput.png)
+![run](resource:assets/img/contohoutput.png)
 
 Yap! hasilnya sudah benar.
 
@@ -140,13 +140,13 @@ Deskripsi:
 
 ## Flow Chart:
 
-![flowchart](/assets/img/flowchart.png)
+![flowchart](resource:assets/img/flowchart.png)
 
 Nah, sudah jelas kan?
 
 Sekarang kita tinggal coding saja.
 
-![luarLingkaran](/assets/img/luasLingkaran.png)
+![luarLingkaran](resource:assets/img/luasLingkaran.png)
 
 Silakan dieksekusi dan perhatikan hasilnya.
 
@@ -245,4 +245,4 @@ Agar hasil operasi data integer dapat disimpan dalam variabel bertipe double, ma
 
 Kalau dijalankan, akan menghasilkan:
 
-![alt text](/assets/img/outputLuas.png)
+![alt text](resource:assets/img/outputLuas.png)
