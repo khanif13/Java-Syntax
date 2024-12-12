@@ -44,6 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           NavigationDestination(
+            icon: Icon(Icons.menu_book),
+            label: "Courses",
+            selectedIcon: Icon(
+              Icons.menu_book,
+              color: Colors.white,
+            ),
+          ),
+          NavigationDestination(
             icon: Icon(Icons.book),
             label: "Bookmark",
             selectedIcon: Icon(
@@ -51,14 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
             ),
           ),
-          NavigationDestination(
-            icon: Icon(Icons.menu_book),
-            label: "Courses",
-            selectedIcon: Icon(
-              Icons.menu_book,
-              color: Colors.white,
-            ),
-          )
         ],
       ),
     );
