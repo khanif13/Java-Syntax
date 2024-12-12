@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:java_syntax/auth_gate.dart';
 import 'package:java_syntax/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,7 +19,8 @@ void main() async {
   List<String> allowList = keys.map((e) => e).toList();
   List<String> allowListMax = allowList.map((e) => "${e}_max").toList();
   allowList.addAll(allowListMax);
-  allowList.addAll(["last_recorded", "time", "app_start", "opened"]);
+  allowList.addAll(
+      ["last_recorded", "time", "app_start", "opened", "bookmark", "username"]);
   sharedPrefs = await SharedPreferencesWithCache.create(
     cacheOptions: SharedPreferencesWithCacheOptions(
       allowList: allowList.toSet(),
@@ -53,11 +55,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Java Syntax',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF224BF4)),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: AuthGate(),
     );
   }
 }
-
