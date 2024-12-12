@@ -1,4 +1,4 @@
-package com.example.java_syntax
+package com.isc.java_syntax
 
 import io.flutter.embedding.android.FlutterActivity
 
